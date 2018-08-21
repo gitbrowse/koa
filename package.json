@@ -7,7 +7,7 @@
     "build": "babel . --out-dir dist --ignore node_modules",
     "start": "node dist/app.js",
     "dev": "npm run build && npm start",
-    "test": "node app.js"
+    "test": "node test.js"
   },
   "author": "",
   "license": "ISC",
