@@ -1,0 +1,23 @@
+{
+  "name": "server2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "build": "babel . --out-dir dist --ignore node_modules",
+    "start": "node dist/app.js",
+    "dev": "npm run build && npm start",
+    "test": "node app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "formidable": "^1.2.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "eslint": "^5.4.0"
+  }
+}
