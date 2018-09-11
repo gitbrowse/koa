@@ -1,8 +1,11 @@
 {
   "presets": [
+    "es2015",
     "env"
   ],
   "plugins": [
+    "transform-object-rest-spread",
+    "transform-runtime"
   ],
   "ignore": [
     "node_modules",
