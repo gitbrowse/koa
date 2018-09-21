@@ -1,6 +1,7 @@
 import Koa from 'koa';
 import koaBody from 'koa-body';
 import bodyParser from 'koa-bodyparser';
+// const cookieParase = require('cookie-parser');
 import router from './router/router';
 
 
@@ -18,6 +19,7 @@ app
     })
     .use(koaBody({ multipart: true }))
     .use(bodyParser())
+    // .use(cookieParase())
     .use(router.routes());
 
 app.listen(3000);
