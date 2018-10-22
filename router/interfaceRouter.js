@@ -10,10 +10,21 @@ interfaceRouter.post('/upload', async function (ctx) {
     const data = ctx.request.body;
     const file = ctx.request.files.file;
     // const cookie = ctx.cookie;
-    console.log(ctx.cookies.get('_lxsdk_cuid'));
-
-
     const rst = await uploadFile(data, file);
+
+    ctx.body = rst;
+});
+interfaceRouter.get('/test', async function (ctx) {
+    console.log(ctx.request.query);
+    console.log(ctx.request.body);
+    const rst = {code:200,data:null};
+
+    ctx.body = rst;
+});
+interfaceRouter.post('/test', async function (ctx) {
+    console.log(ctx.request.query);
+    console.log(ctx.request.body);
+    const rst = {code:200,data:null};
 
     ctx.body = rst;
 });

@@ -3,7 +3,7 @@ import fs from 'fs';
 const uploadFile = async (data, file) => {
 
     const RET = {
-        code: '200',
+        code: 200,
         success: false,
         msg: '',
         data: null,
