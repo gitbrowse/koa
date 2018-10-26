@@ -3,9 +3,8 @@ import koaBody from 'koa-body';
 import bodyParser from 'koa-bodyparser';
 // const cookieParase = require('cookie-parser');
 import router from './router/router';
+import createWss from "./websocket/websocket";
 
-
-// const Koa = require('koa');
 const app = new Koa();
 app
     // 跨域设置，不要用koa2-cors
@@ -21,5 +20,6 @@ app
     .use(bodyParser())
     // .use(cookieParase())
     .use(router.routes());
-
 app.listen(3000);
+
+createWss();
