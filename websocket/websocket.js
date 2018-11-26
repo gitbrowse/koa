@@ -1,10 +1,15 @@
 import socketIO from 'socket.io';
 
-const createWss = () => {
-    let io = socketIO.listen(8004);
+import http from 'http';
+
+const createWss = (app) => {
+    const server = http.createServer(app.callback());
+
+    const io = socketIO.listen(server);
 
     io.on('connection', (socket) => {
         console.log('client connect server, ok!');
+
         socket.on('group', (req)=>{
             console.log(JSON.stringify(req));
             if(!req){
@@ -14,6 +19,7 @@ const createWss = () => {
                 socket.join(req.data);
             }
         });
+
         socket.on('message', (req) => {
             console.log(JSON.stringify(req));
             if(!req){
@@ -21,11 +27,13 @@ const createWss = () => {
             }
             if(req.type === 'text'){
                 socket.broadcast.emit(req.from, JSON.stringify(req.data));
-
             }
         });
+
     });
     console.log('wws start');
+
+    return server;
 };
 
 export default createWss;

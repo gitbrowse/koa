@@ -9,7 +9,7 @@ const app = new Koa();
 app
     // 跨域设置，不要用koa2-cors
     .use(async (ctx, next) => {
-        ctx.set('Access-Control-Allow-Origin', ctx.header.origin);
+        ctx.set('Access-Control-Allow-Origin', '*');
         ctx.set('Access-Control-Allow-Credentials', true);
         ctx.set('Content-Type', 'application/json;charset=utf-8');
         ctx.set('Access-Control-Allow-Methods', 'OPTIONS, GET, PUT, POST, DELETE');
@@ -20,6 +20,7 @@ app
     .use(bodyParser())
     // .use(cookieParase())
     .use(router.routes());
-app.listen(3000);
 
-createWss();
+const server = createWss(app);
+server.listen(8001);
+
