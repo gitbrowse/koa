@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "cluster": "^0.7.7",
     "cookie-parser": "^1.4.3",
     "formidable": "^1.2.1",
     "koa": "^2.5.2",
@@ -20,6 +21,7 @@
     "koa-router": "^7.4.0",
     "koa-static": "^5.0.0",
     "socket.io": "^2.1.1",
+    "socket.io-redis": "^5.2.0",
     "sticky-session": "^1.1.2"
   },
   "devDependencies": {
